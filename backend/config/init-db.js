@@ -4,6 +4,11 @@ const initializeDatabase = async () => {
   try {
     console.log('🔄 Initializing database...');
     
+    // Test database connection first
+    console.log('🔍 Testing database connection...');
+    await pool.query('SELECT NOW()');
+    console.log('✅ Database connection successful');
+    
     // Create the recipes table
     await pool.query(`
       CREATE TABLE IF NOT EXISTS recipes (
