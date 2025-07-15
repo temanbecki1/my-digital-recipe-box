@@ -15,7 +15,7 @@ const Navigation = () => {
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link to="/" className="text-xl font-bold hover:text-blue-200 transition-colors">
-              🍳 My Digital Recipe Box
+              🍳 My Digital Recipe Box during the video
             </Link>
           </div>
           <div className="flex items-center space-x-4">
@@ -27,7 +27,7 @@ const Navigation = () => {
                   : 'text-blue-100 hover:bg-blue-500 hover:text-white'
               }`}
             >
-              All Recipes
+              All Recipes are delicious
             </Link>
             <Link
               to="/add"
@@ -37,7 +37,7 @@ const Navigation = () => {
                   : 'text-blue-100 hover:bg-blue-500 hover:text-white'
               }`}
             >
-              Add Recipe
+              Add Recipe if you want
             </Link>
           </div>
         </div>

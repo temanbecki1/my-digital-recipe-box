@@ -1,9 +1,3 @@
-# Video Idea: Building and Deploying "My Digital Recipe Box" with Railway
-
-This video will guide viewers through building a full-stack CRUD (Create, Read, Update, Delete) application called "My Digital Recipe Box" and deploying it seamlessly to Railway. We'll leverage Railway's integrated PostgreSQL instance and focus on a JavaScript-only stack (no TypeScript) for broader accessibility.
-
----
-
 ## 💡 Application Idea: "My Digital Recipe Box"
 
 This application will allow users to store, view, edit, and delete their favorite recipes. It's a relatable concept that clearly demonstrates core CRUD operations.
