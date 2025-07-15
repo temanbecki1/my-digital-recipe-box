@@ -10,22 +10,22 @@ const RecipeDetail = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    const fetchRecipe = async () => {
+      try {
+        setLoading(true);
+        const data = await recipeAPI.getRecipe(id);
+        setRecipe(data);
+        setError(null);
+      } catch (err) {
+        setError('Failed to fetch recipe. Please try again.');
+        console.error('Error fetching recipe:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
     fetchRecipe();
   }, [id]);
-
-  const fetchRecipe = async () => {
-    try {
-      setLoading(true);
-      const data = await recipeAPI.getRecipe(id);
-      setRecipe(data);
-      setError(null);
-    } catch (err) {
-      setError('Failed to fetch recipe. Please try again.');
-      console.error('Error fetching recipe:', err);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const handleDelete = async () => {
     if (window.confirm(`Are you sure you want to delete "${recipe.name}"?`)) {

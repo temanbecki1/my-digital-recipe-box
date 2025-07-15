@@ -20,28 +20,28 @@ const RecipeForm = () => {
   // Fetch recipe data if editing
   useEffect(() => {
     if (isEditing) {
+      const fetchRecipe = async () => {
+        try {
+          setLoading(true);
+          const recipe = await recipeAPI.getRecipe(id);
+          setFormData({
+            name: recipe.name,
+            ingredients: recipe.ingredients,
+            instructions: recipe.instructions,
+            category: recipe.category || ''
+          });
+          setError(null);
+        } catch (err) {
+          setError('Failed to fetch recipe data. Please try again.');
+          console.error('Error fetching recipe:', err);
+        } finally {
+          setLoading(false);
+        }
+      };
+
       fetchRecipe();
     }
   }, [id, isEditing]);
-
-  const fetchRecipe = async () => {
-    try {
-      setLoading(true);
-      const recipe = await recipeAPI.getRecipe(id);
-      setFormData({
-        name: recipe.name,
-        ingredients: recipe.ingredients,
-        instructions: recipe.instructions,
-        category: recipe.category || ''
-      });
-      setError(null);
-    } catch (err) {
-      setError('Failed to fetch recipe data. Please try again.');
-      console.error('Error fetching recipe:', err);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
