@@ -6,8 +6,7 @@
     "install-all": "npm install --prefix backend && npm install --prefix frontend",
     "dev": "concurrently \"npm run dev --prefix backend\" \"npm start --prefix frontend\"",
     "build": "cd frontend && npm install && npm run build",
-    "start": "cd frontend && npm run serve",
-    "postinstall": "cd frontend && npm install"
+    "start": "cd frontend && npm run serve"
   },
   "keywords": ["recipe", "crud", "fullstack", "react", "express", "postgresql"],
   "author": "",
