@@ -5,13 +5,29 @@
   "scripts": {
     "install-all": "npm install --prefix backend && npm install --prefix frontend",
     "dev": "concurrently \"npm run dev --prefix backend\" \"npm start --prefix frontend\"",
-    "build": "npm run build --prefix frontend",
-    "start": "npm start --prefix backend"
+    "build": "cd frontend && npm install && npm run build",
+    "start": "cd frontend && npm run serve",
+    "postinstall": "cd frontend && npm install"
   },
   "keywords": ["recipe", "crud", "fullstack", "react", "express", "postgresql"],
   "author": "",
   "license": "MIT",
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "axios": "^1.5.0",
+    "react-router-dom": "^6.8.1",
+    "serve": "^14.2.1",
+    "web-vitals": "^2.1.4"
+  },
   "devDependencies": {
-    "concurrently": "^8.2.2"
+    "concurrently": "^8.2.2",
+    "tailwindcss": "^3.3.5",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31"
   }
 } 
