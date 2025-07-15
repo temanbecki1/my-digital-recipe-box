@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const initializeDatabase = require('./config/init-db');
 
 // Load environment variables
 dotenv.config();
@@ -32,6 +33,21 @@ app.use('*', (req, res) => {
   res.status(404).json({ message: 'Route not found' });
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-}); 
+// Initialize database and start server
+const startServer = async () => {
+  try {
+    // Initialize database schema and sample data
+    await initializeDatabase();
+    
+    // Start the server
+    app.listen(port, () => {
+      console.log(`🚀 Server is running on port ${port}`);
+    });
+  } catch (error) {
+    console.error('❌ Failed to start server:', error);
+    process.exit(1);
+  }
+};
+
+// Start the server
+startServer(); 
